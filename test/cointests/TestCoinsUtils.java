@@ -67,4 +67,26 @@ public class TestCoinsUtils {
         
     }
     
+    //tests for dynamic programming
+    @Test(expected = IllegalArgumentException.class)
+     public void testDynIsEmpty(){
+        int array[] = {};
+        int minArray[] = {0};
+        assertEquals("Array of size 0 is not allowed", CoinsUtils.dynCoins(array, 0, minArray));
+    }
+     
+     @Test
+     public void testDyn15(){
+         int array[] = {1, 5, 10, 25};
+         int minArray[] = {5, 10};
+         assertArrayEquals(new Object[]{10, 5}, CoinsUtils.dynCoins(array, 15, minArray));
+     }
+     
+     @Test
+     public void testDyn42(){
+         int array[] = {1, 5, 10, 25};
+         int minArray[] = {25, 10, 5, 1, 1};
+         assertArrayEquals(new Object[]{25, 10, 5, 1, 1}, CoinsUtils.dynCoins(array, 42, minArray));
+     }
+    
 }

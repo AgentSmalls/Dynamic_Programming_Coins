@@ -39,4 +39,29 @@ public class CoinsUtils {
         
         return coinsBack;
     }
+    
+    //dynammic algorithm
+    public static Object[] dynCoins(int[] array, int change, int[] minCoins){
+        
+        if (array.length == 0) {
+            throw new IllegalArgumentException("Array of size 0 is not allowed");
+        }
+
+        ArrayList list = new ArrayList();
+        
+        for(int i = 0; i < change+1; i++){
+            int coinCount = i;
+            for(int j = 0; j < array.length; j++){
+                if(j<=i){
+                    if(minCoins[i-j]+1 < coinCount){
+                        coinCount = minCoins[i-j]+1;
+                    }
+                }
+            }
+            minCoins[i] = coinCount;
+            list.add(minCoins[i]);
+        }
+        
+        return list.toArray();
+    }
 }
