@@ -59,7 +59,6 @@ public class CoinsUtils {
         return coinsBack;
     }
     
-<<<<<<< HEAD
     //dynammic algorithm
     public static Object[] dynCoins(int[] array, int change, int[] minCoins){
         
@@ -83,12 +82,11 @@ public class CoinsUtils {
         }
         
         return list.toArray();
-=======
+    }
     private static void print(int[] arr, int length){
         for(int i = 0; i <= length; i++){
             System.out.println(i + "  " + arr[i]);
         }
         System.out.println();
->>>>>>> eb73f00688b7335b4f0e7ca7dcdd0679af26e0a3
     }
 }
