@@ -30,19 +30,21 @@ public class TestCoinsUtils {
         assertEquals(100, CoinsUtils.getMinChange(coinDenominations, change));
     }
     
+    // Coin system in this test would work using greedy algorithm. Does not directly 
+    // test the effectiveness of the dynamic algorithm.
     @Test
     public void testProperChangeBack(){
         int change = 92;
         int[] coinDenominations = new int[] {1, 5, 10, 25};
         ArrayList<Integer> expected = new ArrayList();
-/*        expected.add(25);
-        expected.add(25);
-        expected.add(25);
-        expected.add(10);
+        expected.add(1);
+        expected.add(1);
         expected.add(5);
-        expected.add(1);
-        expected.add(1);
-*/        
+        expected.add(10);
+        expected.add(25);
+        expected.add(25);
+        expected.add(25);
+
         assertEquals(expected, CoinsUtils.getMinChange(coinDenominations, change));
         
     }
@@ -51,13 +53,14 @@ public class TestCoinsUtils {
     public void testDynamicReturnChange(){
         int change = 33;
         int[] coinDenominations = {1, 10, 25};
-        Integer[] returnedCoins = {10, 10, 10, 1, 1, 1};
+        Integer[] returnedCoins = {1, 1, 1, 10, 10, 10};
         ArrayList coins = new ArrayList();
         for(int i = 0; i < returnedCoins.length; i++){
             coins.add(returnedCoins[i]);
         }
+        assertEquals(coins, CoinsUtils.getMinChange(coinDenominations, change));
     }
-    
+        
     @Test (expected = IllegalArgumentException.class)
     public void testEmptyArrayParameter(){
         int[] array = {};
