@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Authors: Timothy Small and James Jacobs
+ * Date: 4/20/18
+ * Overview: Collections of tests to test a dynamic program for returning change
  */
 
 package cointests;
@@ -16,6 +16,7 @@ import static org.junit.Assert.*;
 
 public class TestCoinsUtils {
     
+    //tests if value of change is greater than or equal to zero
     @Test (expected = IllegalArgumentException.class)
     public void testPositiveChangeBack(){
         int change = -5;
@@ -23,6 +24,7 @@ public class TestCoinsUtils {
         assertEquals(0, CoinsUtils.getMinChange(coinDenominations, change));
     }
     
+    //checks if change is less than a dollar
     @Test (expected = IllegalArgumentException.class)
     public void testChangeLessThanDollar(){
         int change = 109;
@@ -32,6 +34,7 @@ public class TestCoinsUtils {
     
     // Coin system in this test would work using greedy algorithm. Does not directly 
     // test the effectiveness of the dynamic algorithm.
+    //tests that the algorithm returns the correct coins
     @Test
     public void testProperChangeBack(){
         int change = 92;
@@ -49,6 +52,7 @@ public class TestCoinsUtils {
         
     }
     
+    //tests if dynamic program works properly
     @Test
     public void testDynamicReturnChange(){
         int change = 33;
@@ -61,6 +65,7 @@ public class TestCoinsUtils {
         assertEquals(coins, CoinsUtils.getMinChange(coinDenominations, change));
     }
         
+    //tests for a change value of 15
     @Test (expected = IllegalArgumentException.class)
     public void testEmptyArrayParameter(){
         int[] array = {};

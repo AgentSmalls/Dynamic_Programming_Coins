@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Authors: Timothy Small and James Jacobs
+ * Date: 4/20/18
+ * Overview: methods that calculate least number of coins needed to give change
  */
 
 package cointests;
